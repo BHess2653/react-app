@@ -27,7 +27,7 @@ export default class App extends Component {
       <div>
         <h1>React App</h1>
         <CreateItem createItem={this.createItem.bind(this)} />
-        <ItemList items={this.state.items} toggleItem={this.toggleItem.bind(this)} />
+        <ItemList items={this.state.items} toggleItem={this.toggleItem.bind(this)} saveItem={this.saveItem.bind(this)} deleteItem={this.deleteItem.bind(this)}/>
       </div>
     )
   }
@@ -43,6 +43,17 @@ export default class App extends Component {
       item,
       isCompleted: false
     })
+    this.setState({ items: this.state.items })
+  }
+
+  saveItem(oldItem, newItem) {
+    const foundItem = _.find(this.state.items, item => item.item === oldItem)
+    foundItem.item = newItem
+    this.setState({ items: this.state.items })
+  }
+
+  deleteItem(itemToDelete) {
+    _.remove(this.state.items, item => item.item === itemToDelete)
     this.setState({ items: this.state.items })
   }
 }

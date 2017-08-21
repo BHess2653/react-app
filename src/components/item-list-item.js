@@ -18,6 +18,16 @@ export default class ItemListItem extends Component {
       curser: 'pointer'
     }
 
+    if (this.state.isEditing) {
+      return (
+        <td>
+          <form onSubmit={this.onSaveClick.bind(this)}>
+            <input type='text' defaultValue={item} ref='editInput' />
+          </form>
+        </td>
+      )
+    }
+
     return(
       <td onClick={this.toggleItem.bind(this, item)} style={itemStyle}>{item}</td>
     )
@@ -28,7 +38,7 @@ export default class ItemListItem extends Component {
     if (this.isEditing) {
       return (
         <td>
-          <button>Save</button>
+          <button onClick={this.onSaveClick.bind(this)}>Save</button>
           <button onClick={this.onCancelClick.bind(this)}>Cancel</button>
         </td>
       )
@@ -36,7 +46,7 @@ export default class ItemListItem extends Component {
     return (
       <td>
         <button onClick={this.onEditClick.bind(this)}>Edit</button>
-        <button>Delete</button>
+        <button onClick={this.props.deleteItem.bind(this, this.props.item)}>Delete</button>
       </td>
     )
   }
@@ -56,5 +66,13 @@ export default class ItemListItem extends Component {
   // Cancel Btn
   onCancelClick() {
     this.setState({ isEditing: true })
+  }
+  // Save Btn
+  onSaveClick(event) {
+    event.preventDefault()
+    const oldItem = this.props.item
+    const newItem = this.refs.editInput.value
+    this.props.saveItem(oldItem, newItem)
+    this.setState({ isEditing: false })
   }
 }
