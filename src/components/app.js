@@ -1,6 +1,18 @@
-import React from 'react'
+import React, { Component } from 'react'
+import ItemList from './item-list'
 
-export default class App extends React.Component {
+const items = [
+  {
+    task: 'Create Lava Chicken',
+    isCompleted: true
+  },
+  {
+    task: 'Create Water Chicken'
+    isCompleted: false
+  }
+]
+
+export default class App extends Component {
   render() {
     return (
       <div>
