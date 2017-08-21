@@ -20,7 +20,7 @@
   "homepage": "https://github.com/BHess2653/react-app#readme",
   "dependencies": {
     "express": "^4.13.4",
-    "lodash": "^4.2.1",
+    "lodash": "^4.17.4",
     "react": "^15.6.1",
     "react-dom": "^15.6.1"
   },
