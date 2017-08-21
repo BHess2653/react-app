@@ -26,7 +26,7 @@ export default class App extends Component {
     return (
       <div>
         <h1>React App</h1>
-        <CreateItem createItem={this.createItem.bind(this)} />
+        <CreateItem items={this.state.items} createItem={this.createItem.bind(this)} />
         <ItemList items={this.state.items} toggleItem={this.toggleItem.bind(this)} saveItem={this.saveItem.bind(this)} deleteItem={this.deleteItem.bind(this)}/>
       </div>
     )
