@@ -26,9 +26,23 @@ export default class App extends Component {
     return (
       <div>
         <h1>React App</h1>
-        <CreateItem />
-        <ItemList items={this.state.items}/>
+        <CreateItem createItem={this.createItem.bind(this)} />
+        <ItemList items={this.state.items} toggleItem={this.toggleItem.bind(this)} />
       </div>
     )
+  }
+
+  toggleItem(item) {
+    const foundItem = _.find(this.state.items, item => item.item === item)
+    foundItem.isCompleted = !foundItem.isCompleted
+    this.setState({ items: this.state.items })
+  }
+
+  createItem(item) {
+    this.state.items.push({
+      item,
+      isCompleted: false
+    })
+    this.setState({ items: this.state.items })
   }
 }

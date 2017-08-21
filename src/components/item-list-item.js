@@ -9,6 +9,21 @@ export default class ItemListItem extends Component {
     }
   }
 
+  // Change Color on Click
+  renderItemSection() {
+    const { item, isCompleted } = this.props
+
+    const itemStyle = {
+      color: isCompleted ? 'green' : 'red',
+      curser: 'pointer'
+    }
+
+    return(
+      <td onClick={this.toggleItem.bind(this, item)} style={itemStyle}>{item}</td>
+    )
+  }
+
+  // Render the buttons
   renderActionSection() {
     if (this.isEditing) {
       return (
@@ -29,7 +44,7 @@ export default class ItemListItem extends Component {
   render() {
     return (
       <tr>
-        <td>{this.props.task}</td>
+        {this.renderItemSection()}
         {this.renderActionSection()}
       </tr>
     )
