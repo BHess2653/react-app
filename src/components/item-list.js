@@ -1,6 +1,7 @@
 import _ from 'lodash'
 import React, { Component } from 'react'
 import ListHeader from './list-header'
+import ItemListItem from './item-list-item'
 
 export default class ItemList extends Component {
   renderItems() {
@@ -12,9 +13,9 @@ export default class ItemList extends Component {
     return (
       <table>
         <ListHeader />
-        <tr>
+        <tbody>
           {this.renderItems()}
-        </tr>
+        </tbody>
       </table>
     )
   }

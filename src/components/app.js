@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import CreateItem from './create-item'
 import ItemList from './item-list'
 
 const items = [
@@ -25,6 +26,7 @@ export default class App extends Component {
     return (
       <div>
         <h1>React App</h1>
+        <CreateItem />
         <ItemList items={this.state.items}/>
       </div>
     )
