@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export default class ListHeader extends Component {
   render() {
     return (
       <thead>
         <tr>
-          <th>Jobs</th>
-          <th>Actions</th>
+          <th>Goals</th>
+          <th>Edit/Delete</th>
         </tr>
       </thead>
     )
