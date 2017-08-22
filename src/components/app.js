@@ -26,7 +26,7 @@ export default class App extends Component {
     return (
       <div>
         <h1>React App</h1>
-        <CreateItem
+        <CreateJob
         items={this.state.items}
         createJob={this.createJob.bind(this)}
         />

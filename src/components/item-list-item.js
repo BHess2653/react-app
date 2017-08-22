@@ -29,7 +29,7 @@ export default class ItemListItem extends Component {
     }
 
     return(
-      <td onClick={this.toggleJob.bind(this, job)} style={jobStyle}>Job}</td>
+      <td onClick={this.props.toggleJob.bind(this, job)} style={jobStyle}>{job}</td>
     )
   }
 
