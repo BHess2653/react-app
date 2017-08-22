@@ -4,11 +4,11 @@ import ItemList from './item-list'
 
 const items = [
   {
-    task: 'Create Lava Chicken',
+    job: 'Create Ender Pearl Chicken',
     isCompleted: true
   },
   {
-    task: 'Create Water Chicken'
+    job: 'Create Iron Chicken'
     isCompleted: false
   }
 ]
@@ -26,34 +26,42 @@ export default class App extends Component {
     return (
       <div>
         <h1>React App</h1>
-        <CreateItem items={this.state.items} createItem={this.createItem.bind(this)} />
-        <ItemList items={this.state.items} toggleItem={this.toggleItem.bind(this)} saveItem={this.saveItem.bind(this)} deleteItem={this.deleteItem.bind(this)}/>
+        <CreateItem
+        items={this.state.items}
+        createJob={this.createJob.bind(this)}
+        />
+        <ItemList
+        items={this.state.items}
+        toggleJob={this.toggleJob.bind(this)}
+        saveJob={this.saveJob.bind(this)}
+        deleteJob={this.deleteJob.bind(this)}
+        />
       </div>
     )
   }
 
-  toggleItem(item) {
-    const foundItem = _.find(this.state.items, item => item.item === item)
+  toggleJob(job) {
+    const foundItem = _.find(this.state.items, item => item.job === job)
     foundItem.isCompleted = !foundItem.isCompleted
     this.setState({ items: this.state.items })
   }
 
-  createItem(item) {
+  createJob(job) {
     this.state.items.push({
-      item,
+      job,
       isCompleted: false
     })
     this.setState({ items: this.state.items })
   }
 
-  saveItem(oldItem, newItem) {
-    const foundItem = _.find(this.state.items, item => item.item === oldItem)
-    foundItem.item = newItem
+  saveJob(oldJob, newJob) {
+    const foundItem = _.find(this.state.items, item => item.job === oldJob)
+    foundItem.job = newJob
     this.setState({ items: this.state.items })
   }
 
-  deleteItem(itemToDelete) {
-    _.remove(this.state.items, item => item.item === itemToDelete)
+  deleteJob(jobToDelete) {
+    _.remove(this.state.items, item => item.job === jobToDelete)
     this.setState({ items: this.state.items })
   }
 }

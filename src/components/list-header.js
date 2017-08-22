@@ -5,7 +5,7 @@ export default class ListHeader extends Component {
     return (
       <thead>
         <tr>
-          <th>Items</th>
+          <th>Jobs</th>
           <th>Actions</th>
         </tr>
       </thead>

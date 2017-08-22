@@ -10,10 +10,10 @@ export default class ItemListItem extends Component {
   }
 
   // Change Color on Click
-  renderItemSection() {
-    const { item, isCompleted } = this.props
+  renderJobSection() {
+    const { job, isCompleted } = this.props
 
-    const itemStyle = {
+    const jobStyle = {
       color: isCompleted ? 'green' : 'red',
       curser: 'pointer'
     }
@@ -22,14 +22,14 @@ export default class ItemListItem extends Component {
       return (
         <td>
           <form onSubmit={this.onSaveClick.bind(this)}>
-            <input type='text' defaultValue={item} ref='editInput' />
+            <input type='text' defaultValue={job} ref='editInput' />
           </form>
         </td>
       )
     }
 
     return(
-      <td onClick={this.toggleItem.bind(this, item)} style={itemStyle}>{item}</td>
+      <td onClick={this.toggleJob.bind(this, job)} style={jobStyle}>Job}</td>
     )
   }
 
@@ -46,7 +46,7 @@ export default class ItemListItem extends Component {
     return (
       <td>
         <button onClick={this.onEditClick.bind(this)}>Edit</button>
-        <button onClick={this.props.deleteItem.bind(this, this.props.item)}>Delete</button>
+        <button onClick={this.props.deleteJob.bind(this, this.props.job)}>Delete</button>
       </td>
     )
   }
@@ -54,7 +54,7 @@ export default class ItemListItem extends Component {
   render() {
     return (
       <tr>
-        {this.renderItemSection()}
+        {this.renderJobSection()}
         {this.renderActionSection()}
       </tr>
     )
@@ -70,9 +70,9 @@ export default class ItemListItem extends Component {
   // Save Btn
   onSaveClick(event) {
     event.preventDefault()
-    const oldItem = this.props.item
-    const newItem = this.refs.editInput.value
-    this.props.saveItem(oldItem, newItem)
+    const oldJob = this.props.job
+    const newJob = this.refs.editInput.value
+    this.props.saveJob(oldJob, newJob)
     this.setState({ isEditing: false })
   }
 }

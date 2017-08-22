@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class CreateItem extends Component {
+export default class ItemList extends Component {
   constructor(props) {
     super(props)
 
@@ -28,8 +28,8 @@ export default class CreateItem extends Component {
     event.preventDefault()
 
     const createInput = this.refs.createInput
-    const item = createInput.value
-    const validateInput = this.validateInput(item)
+    const job = createInput.value
+    const validateInput = this.validateInput(job)
 
     if (validateInput) {
       this.setState({ error: validateInput })
@@ -37,15 +37,15 @@ export default class CreateItem extends Component {
     }
 
     this.setState({ error: null })
-    this.props.createItem(item)
+    this.props.createJob(job)
     this.refs.createInput.value = ''
   }
 
-  validateInput(item) {
-    if (!item) {
-      return 'Please enter a item to add!'
-    } else if (_.find(this.props.items, item => item.item === item)) {
-      return 'Item already Exists!'
+  validateInput(job) {
+    if (!job) {
+      return 'Please enter a job to add!'
+    } else if (_.find(this.props.items, item => item.job === job)) {
+      return 'Job already Exists!'
     } else {
       return null
     }
