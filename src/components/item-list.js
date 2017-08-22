@@ -7,7 +7,7 @@ export default class ItemList extends Component {
   renderItems() {
     const props = _.omit(this.props, 'items')
 
-    return _.map(this.props.items, (item, index) item => <ItemListItem key={index} {..item} />)
+    return _.map(this.props.items, (item, index) => <ItemListItem key={index} {...item} {...props} />)
   }
 
   render() {

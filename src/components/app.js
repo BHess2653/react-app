@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import CreateItem from './create-item'
+import CreateJob from './create-item'
 import ItemList from './item-list'
 
 const items = [
@@ -8,7 +8,7 @@ const items = [
     isCompleted: true
   },
   {
-    job: 'Create Iron Chicken'
+    job: 'Create Iron Chicken',
     isCompleted: false
   }
 ]
