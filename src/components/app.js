@@ -28,18 +28,22 @@ export default class App extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Sky Factory 3 Todo List</h1>
-        <CreateJob
-          items={this.state.items}
-          createJob={this.createJob.bind(this)}
-        />
-        <ItemList
-          items={this.state.items}
-          toggleJob={this.toggleJob.bind(this)}
-          saveJob={this.saveJob.bind(this)}
-          deleteJob={this.deleteJob.bind(this)}
-        />
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-md-6 col-md-offset-3">
+            <h1>Sky Factory 3 Todo List</h1>
+            <CreateJob
+              items={this.state.items}
+              createJob={this.createJob.bind(this)}
+            />
+            <ItemList
+              items={this.state.items}
+              toggleJob={this.toggleJob.bind(this)}
+              saveJob={this.saveJob.bind(this)}
+              deleteJob={this.deleteJob.bind(this)}
+            />
+          </div>
+        </div>
       </div>
     );
   }

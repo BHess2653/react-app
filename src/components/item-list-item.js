@@ -35,18 +35,18 @@ export default class ItemListItem extends Component {
 
   // Render the buttons
   renderActionSection() {
-    if (this.isEditing) {
+    if (this.state.isEditing) {
       return (
         <td>
-          <button onClick={this.onSaveClick.bind(this)}>Save</button>
-          <button onClick={this.onCancelClick.bind(this)}>Cancel</button>
+          <button type="button" className="btn btn-success" onClick={this.onSaveClick.bind(this)}>Save</button>
+          <button type="button" className="btn btn-default" onClick={this.onCancelClick.bind(this)}>Cancel</button>
         </td>
       );
     }
     return (
       <td>
-        <button onClick={this.onEditClick.bind(this)}>Edit</button>
-        <button onClick={this.props.deleteJob.bind(this, this.props.job)}>Delete</button>
+        <button type="button" className="btn btn-info" onClick={this.onEditClick.bind(this)}>Edit</button>
+        <button type="button" className="btn btn-danger" onClick={this.props.deleteJob.bind(this, this.props.job)}>Delete</button>
       </td>
     );
   }
@@ -65,7 +65,7 @@ export default class ItemListItem extends Component {
   }
   // Cancel Btn
   onCancelClick() {
-    this.setState({ isEditing: true });
+    this.setState({ isEditing: false });
   }
   // Save Btn
   onSaveClick(event) {

@@ -1,0 +1,26 @@
+input {
+  width: 60%;
+  font-size: 15px;
+}
+
+h1 {
+  font-family: 'Walter Turncoat', cursive;
+  font-size: 60px;
+}
+
+body, p {
+  font-family: 'Kreon', serif;
+}
+
+th, td {
+  font-size: 20px;
+}
+
+button {
+  margin-right: 5px;
+}
+
+form {
+  padding-top: 25px;
+  padding-bottom: 25px;
+}

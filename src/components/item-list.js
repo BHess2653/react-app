@@ -13,7 +13,7 @@ export default class ItemList extends Component {
   render() {
     console.log(this.props.items)
     return (
-      <table>
+      <table className="table table-hover">
         <ListHeader />
         <tbody>
           {this.renderItems()}
