@@ -5,23 +5,8 @@ export default class ItemList extends Component {
     super(props);
 
     this.state = {
-      error: null
+      error: null,
     };
-  }
-
-  renderError() {
-    if (!this.state.error) { return null; }
-    return <div style={{ color: 'red' }}>{this.state.error}</div>;
-  }
-
-  render() {
-    return (
-      <form onSubmit={this.handleCreate.bind(this)}>
-        <input type='text' placeholder='What is your next goal?' ref='createInput' />
-        <button type="button" className="btn btn-default" >Add</button>
-        {this.renderError()}
-      </form>
-    );
   }
 
   handleCreate(event) {
@@ -49,5 +34,20 @@ export default class ItemList extends Component {
     } else {
       return null;
     }
+  }
+
+  renderError() {
+    if (!this.state.error) { return null; }
+    return <div style={{ color: 'red' }}>{this.state.error}</div>;
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleCreate.bind(this)}>
+        <input type='text' placeholder='What is your next goal?' ref='createInput' />
+        <button type="button" className="btn btn-default" >Add</button>
+        {this.renderError()}
+      </form>
+    );
   }
 }

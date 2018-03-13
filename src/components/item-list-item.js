@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 
 export default class ItemListItem extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
-      isEditing: false
+      isEditing: false,
     };
   }
 
@@ -15,7 +15,7 @@ export default class ItemListItem extends Component {
 
     const jobStyle = {
       color: isCompleted ? 'green' : 'red',
-      cursor: 'pointer'
+      cursor: 'pointer',
     };
 
     if (this.state.isEditing) {
