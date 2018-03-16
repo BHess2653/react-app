@@ -2,11 +2,30 @@ import React, { Component } from 'react';
 
 export default class ItemListItem extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
-      isEditing: false
+      isEditing: false,
     };
+  }
+
+  // Edit Btn
+  onEditClick() {
+    this.setState({ isEditing: true });
+  }
+
+  // Cancel Btn
+  onCancelClick() {
+    this.setState({ isEditing: false });
+  }
+
+  // Save Btn
+  onSaveClick(event) {
+    event.preventDefault();
+    const oldJob = this.props.job;
+    const newJob = this.refs.editInput.value;
+    this.props.saveJob(oldJob, newJob);
+    this.setState({ isEditing: false });
   }
 
   // Change Color on Click
@@ -15,7 +34,7 @@ export default class ItemListItem extends Component {
 
     const jobStyle = {
       color: isCompleted ? 'green' : 'red',
-      cursor: 'pointer'
+      cursor: 'pointer',
     };
 
     if (this.state.isEditing) {
@@ -28,7 +47,7 @@ export default class ItemListItem extends Component {
       );
     }
 
-    return(
+    return (
       <td onClick={this.props.toggleJob.bind(this, job)} style={jobStyle}>{job}</td>
     );
   }
@@ -58,21 +77,5 @@ export default class ItemListItem extends Component {
         {this.renderActionSection()}
       </tr>
     );
-  }
-  // Edit Btn
-  onEditClick() {
-    this.setState({ isEditing: true });
-  }
-  // Cancel Btn
-  onCancelClick() {
-    this.setState({ isEditing: false });
-  }
-  // Save Btn
-  onSaveClick(event) {
-    event.preventDefault();
-    const oldJob = this.props.job;
-    const newJob = this.refs.editInput.value;
-    this.props.saveJob(oldJob, newJob);
-    this.setState({ isEditing: false });
   }
 }

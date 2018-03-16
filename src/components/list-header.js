@@ -9,6 +9,6 @@ export default class ListHeader extends Component {
           <th>Edit/Delete</th>
         </tr>
       </thead>
-    )
+    );
   }
 }
