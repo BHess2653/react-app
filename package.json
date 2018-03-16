@@ -1,11 +1,11 @@
 {
   "name": "react-app",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "start": "node server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -19,8 +19,17 @@
   },
   "homepage": "https://github.com/BHess2653/react-app#readme",
   "dependencies": {
+    "chai": "^4.1.2",
+    "eslint": "^4.18.2",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0",
     "express": "^4.13.4",
     "lodash": "^4.17.4",
+    "mocha": "^5.0.4",
+    "mocha-eslint": "^4.1.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1"
   },
@@ -34,6 +43,7 @@
     "webpack-dev-server": "^2.7.1"
   },
   "engines": {
-    "node": "5.5.0"
+    "node": "8.8.1",
+    "npm": "5.4.2"
   }
 }
