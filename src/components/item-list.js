@@ -11,7 +11,7 @@ export default class ItemList extends Component {
   }
 
   render() {
-    console.log(this.props.items)
+    console.log(this.props.items);
     return (
       <table className="table table-hover">
         <ListHeader />
