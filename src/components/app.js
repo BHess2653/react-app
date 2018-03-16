@@ -1,6 +1,8 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import CreateJob from './create-item';
 import ItemList from './item-list';
+
 
 const items = [
   {
